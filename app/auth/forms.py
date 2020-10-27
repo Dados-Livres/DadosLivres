@@ -17,10 +17,10 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField(_l('Nome: *'), validators=[Length(min=3, max=30)],
+    username = StringField(_l('Nome: *'), validators=[Length(min=4, max=40)],
         render_kw={"placeholder": "Digite um nome de usuário"})
     nickname = StringField(_l('Apelido: *'), validators=[DataRequired(),
-        Length(min=3, max=10)], render_kw={"placeholder": "Digite seu @ apelido de usuário"})
+        Length(min=4, max=12)], render_kw={"placeholder": "Digite seu @ apelido de usuário"})
     email = StringField(_l('E-mail: *'), validators=[DataRequired(), Email()],
         render_kw={"placeholder": "Digite seu endereço de e-mail"})
     senha = PasswordField(_l('Senha: *'), validators=[DataRequired(),
