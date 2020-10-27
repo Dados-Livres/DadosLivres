@@ -81,7 +81,7 @@ def MovieTheater_Software():
 @bp.route('/Music_Source', methods=['GET', 'POST'])
 def Music_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
-        Tag.tag).filter(Category.category=='Música',
+        Tag.keyword).filter(Category.category=='Música',
         Category.source_id == Source.id, Source.tags).order_by(
         Source.timestamp.desc()).all()
     return render_template('category/Music_Source.html',
@@ -108,7 +108,7 @@ def Technology_Source():
 @bp.route('/Technology_Software', methods=['GET', 'POST'])
 def Technology_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
-        Category.category, Tag.tag).filter(Category.category=='Tecnologia',
+        Category.category, Tag.keyword).filter(Category.category=='Tecnologia',
         Category.software_id == Software.id, Software.tags).order_by(
         Software.timestamp.desc()).all()
     return render_template('category/Technology_Software.html',
@@ -180,7 +180,7 @@ def Culture_Source():
 @bp.route('/Culture_Software', methods=['GET', 'POST'])
 def Culture_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
-        Category.category, Tag.tag).filter(Category.category=='Cultura',
+        Category.category, Tag.keyword).filter(Category.category=='Cultura',
         Category.software_id == Software.id, Software.tags).order_by(
         Software.timestamp.desc()).all()
     return render_template('category/Culture_Software.html',
