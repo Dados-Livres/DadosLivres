@@ -11,10 +11,10 @@
       <p>{{_('Palavras-Chaves')}}: {% for tag in software.tags %}{{ tag }}{% endfor %}</p>
       <p>{% if software.description %}{{ software.description }}{% endif %}</p>
       {% if software.user_id == current_user.id %}
-        <p><a href="{{ url_for('main.edit_software', id=software.id) }}" id="color-red">{{_('Editar Aplicação')}}</a> |
-          <a href="{{ url_for('main.deletar_software', id=software.id) }}" id="color-red">{{_('Apagar Aplicação')}}</a></p>
+        <p><a href="{{ url_for('main.edit_software', id=software.id) }}" id="color-red">{{_('Editar aplicação')}}</a> |
+          <a href="{{ url_for('main.deletar_software', id=software.id) }}" id="color-red">{{_('Apagar aplicação')}}</a></p>
       {% endif %}
-      <br><h4><a href="{{ software.officialLink }}" id="buttonPerfil" target="_blank">{{_('Visitar Página Oficial')}}</a><h4><br>
+      <br><h4><a href="{{ software.officialLink }}" id="buttonPerfil" target="_blank">{{_('Visitar página oficial')}}</a><h4><br>
       <h4>{{_('Aplicação registrada por')}}:
         <a href="{{ url_for('main.user', nickname=software.author.nickname ) }}" id="color-red">
           @{{ software.author.nickname }}</a></h4>
