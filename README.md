@@ -34,6 +34,12 @@ E finalmente, instale a lista de pacotes da aplicação:
 ```sh
 $ pip install -r requirements.txt
 ```
+Criando o banco de dados:
+```sh
+$ flask db stamp head
+$ flask db migrate -m "criei o banco de dados"
+$ flask db upgrade
+```
 Para rodar a aplicação utilize o comando:
 ```sh
 $ flask run
@@ -41,12 +47,6 @@ $ flask run
 Acesse no seu navegador o seguinte endereço abaixo:
 ```sh
 http://localhost:5000/
-```
-Criando o banco de dados:
-```sh
-$ flask db stamp head
-$ flask db migrate -m "criei o banco de dados"
-$ flask db upgrade
 ```
 
 # Lista de autores
