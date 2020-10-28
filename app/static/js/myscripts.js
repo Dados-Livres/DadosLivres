@@ -46,9 +46,7 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-  var tagsList = [
-
-  ];
+  var tagsList = [];
 
   var split = function(val) {
       return val.split(",");
@@ -61,7 +59,8 @@ $(document).ready(function () {
   function loadTags() {
     $.getJSON('/_tag', function (data, status, xhr) {
       for (var i = 0; i < data.length; i++) {
-        tagsList.push(data[i].keyword);
+       const splittedWords = data[i].keyword.split(',');
+       tagsList = tagsList.concat(splittedWords);
       }
     });
   };
@@ -80,7 +79,7 @@ $(document).ready(function () {
     focus: function() {
       return false;
     },
-    select: function(event, ui ) {
+    select: function(event, ui) {
       var terms = split(this.value);
       terms.pop();
       terms.push(ui.item.value);
