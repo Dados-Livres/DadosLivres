@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, SelectField, TextField, TextAreaField, \
     DateField, PasswordField, RadioField, BooleanField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Length, \
-    Email, EqualTo, Regexp
+    Email, EqualTo
 from app.util.validators import Unique
 from datetime import datetime
 from flask_babel import _, lazy_gettext as _l
@@ -50,28 +50,36 @@ class SourceForm(FlaskForm):
     keyword = StringField(_l('Palavras-Chaves: *'), id="tag", validators=[DataRequired()],
         render_kw={"placeholder": "Digite as palavras-chaves"})
     category = SelectField(_l('Categoria: *'), validators=[DataRequired()],
-        choices=[('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
+        choices=[('Selecione','Selecione uma categoria'), ('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')], default=1)
-    officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired('URL verificada!'),
-        Regexp('^(http|https):\/\/[\w.\-]+(\.[\w.\-]+)+.*$', 0,
-               'URL inválida. Use https:// no início da URL')],
-               render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
-    sphere = SelectField(_l('Esfera: *'), id="esfera", choices=[
-        ('Municipal', 'Municipal'), ('Estadual', 'Estadual'), ('Federal', 'Federal'),
-        ('Internacional','Internacional')], validators=[DataRequired()])
-    city = StringField(_l('Município:'), id="municipal",
-        render_kw={"placeholder": "Digite o município da fonte de dados abertos"})
-    state = StringField(_l('Estado:'), id="estadual",
-        render_kw={"placeholder": "Digite o estato da fonte de dados abertos"})
-    country = StringField(_l('País:'), id="internacional",
-        render_kw={"placeholder": "Digite o país da fonte de dados abertos"})
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+    officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
+        render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
         Length(max=550)], render_kw={"rows": 6, "placeholder": "Digite uma breve descrição sobre a fonte de dados abertos"})
+    sphere = SelectField(_l('Esfera: *'), choices=[
+        ('Selecione','Selecione uma esfera'), ('Municipal', 'Municipal'),
+        ('Estadual', 'Estadual'), ('Federal', 'Federal'),
+        ('Internacional','Internacional')], validators=[DataRequired()])
+    country = StringField(_l('País:'),
+        render_kw={"placeholder": "Digite o país da fonte de dados abertos"})
+    state = StringField(_l('Estado:'),
+        render_kw={"placeholder": "Digite o estato da fonte de dados abertos"})
+    city = StringField(_l('Município:'),
+        render_kw={"placeholder": "Digite o município da fonte de dados abertos"})
     submit = SubmitField(_l('Registrar'))
+
+    def validate_category(self, category):
+        if category.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma categoria válida.'))
+
+    def validate_sphere(self, sphere):
+        if sphere.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma esfera válida.'))
 
 
 class EditSourceForm(FlaskForm):
@@ -81,28 +89,36 @@ class EditSourceForm(FlaskForm):
     keyword = StringField(_l('Palavras-Chaves: *'), id="tag", validators=[DataRequired()],
         render_kw={"placeholder": "Digite as palavras-chaves da fonte"})
     category = SelectField(_l('Categoria: *'), validators=[DataRequired()],
-        choices=[('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
+        choices=[('Selecione','Selecione uma categoria'), ('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')], default=1)
-    officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired('URL verificada!'),
-        Regexp('^(http|https):\/\/[\w.\-]+(\.[\w.\-]+)+.*$', 0,
-               'URL inválida. Use https:// no início da URL')],
-               render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
-    sphere = SelectField(_l('Esfera: *'), id="esfera", choices=[
-        ('Municipal', 'Municipal'), ('Estadual', 'Estadual'), ('Federal', 'Federal'),
-        ('Internacional','Internacional')], validators=[DataRequired()])
-    city = StringField(_l('Município:'), id="municipal",
-        render_kw={"placeholder": "Digite o município da fonte de dados abertos"})
-    state = StringField(_l('Estado:'), id="estadual",
-        render_kw={"placeholder": "Digite o estato da fonte de dados abertos"})
-    country = StringField(_l('País:'), id="internacional",
-        render_kw={"placeholder": "Digite o país da fonte de dados abertos"})
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+    officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
+        render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
         Length(max=550)], render_kw={"rows": 6, "placeholder": "Digite uma breve descrição sobre a fonte de dados abertos"})
+    sphere = SelectField(_l('Esfera: *'), choices=[
+        ('Selecione','Selecione uma esfera'), ('Municipal', 'Municipal'),
+        ('Estadual', 'Estadual'), ('Federal', 'Federal'),
+        ('Internacional','Internacional')], validators=[DataRequired()])
+    country = StringField(_l('País:'),
+        render_kw={"placeholder": "Digite o país da fonte de dados abertos"})
+    state = StringField(_l('Estado:'),
+        render_kw={"placeholder": "Digite o estato da fonte de dados abertos"})
+    city = StringField(_l('Município:'),
+        render_kw={"placeholder": "Digite o município da fonte de dados abertos"})
     submit = SubmitField(_l('Registrar'))
+
+    def validate_category(self, category):
+        if category.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma categoria válida.'))
+
+    def validate_sphere(self, sphere):
+        if sphere.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma esfera válida.'))
 
 
 class SoftwareForm(FlaskForm):
@@ -113,23 +129,17 @@ class SoftwareForm(FlaskForm):
     keyword = StringField(_l('Palavras-Chaves: *'), id="tag", validators=[DataRequired()],
         render_kw={"placeholder": "Digite as palavras-chaves da aplicação"})
     category = SelectField(_l('Categoria: *'), validators=[DataRequired()],
-        choices=[('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
+        choices=[('Selecione','Selecione uma categoria'), ('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
-        ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'), ('IBGE', 'IBGE'),
-        ('Segurança Pública', 'Segurança Pública'), ('Países', 'Países'),
-        ('Meio Ambiente', 'Meio Ambiente'), ('Cultura', 'Cultura'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')], default=1)
-    officialLink = StringField(_l('Página Oficial: *'),
-        validators=[DataRequired('URL verificada!'),
-        Regexp('^(http|https):\/\/[\w.\-]+(\.[\w.\-]+)+.*$', 0,
-               'URL inválida. Use https:// no início da URL')],
+        ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
+        ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
+        ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+    officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da aplicação (https://www.exemplo.com/)"})
-    owner = StringField(_l('Desenvolvedor: *'), validators=[DataRequired(),
-        Length(min=3)], render_kw={"placeholder": "Digite qual a pessoa desenvolvedora/empresa da aplicação"})
-    dateCreation = StringField(_l('Data de Criação:'),
-        render_kw={"placeholder": "Digite a data de criação (formato: 12/02/2020)"})
     license = SelectField(_l('Licença: *'), validators=[DataRequired()],
-        choices=[('Apache License 2.0', 'Apache License 2.0'),
+        choices=[('Selecione','Selecione uma licença'), ('Apache License 2.0', 'Apache License 2.0'),
         ('GNU General Public License v3.0','GNU General Public License v3.0'),
         ('MIT License','MIT License'), ('BSD 2-Clause "Simplified" License','BSD 2-Clause "Simplified" License'),
         ('BSD 3-Clause "New" or "Revised" License','BSD 3-Clause "New" or "Revised" License'),
@@ -139,10 +149,21 @@ class SoftwareForm(FlaskForm):
         ('GNU Alffero General Public License v3.0','GNU Alffero General Public License v3.0'),
         ('GNU General Public License v2.0','GNU General Public License v2.0'),
         ('GNU Lesser General Public License v2.1','GNU Lesser General Public License v2.1'),
-        ('Mozilla Public License 2.0','Mozilla Public License 2.0')], default=1)
+        ('Mozilla Public License 2.0','Mozilla Public License 2.0'), ('Não encontrada','Não encontrada')],
+        description='Sugira uma nova licença pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
         Length(max=550)], render_kw={"rows": 6, "placeholder": "Digite uma breve descrição sobre a aplicação"})
+    owner = StringField(_l('Desenvolvedor:'), render_kw={"placeholder": "Digite qual a pessoa desenvolvedora/empresa da aplicação"})
+    dateCreation = StringField(_l('Data de Criação:'), render_kw={"placeholder": "Digite a data de criação (formato: 12/02/2020)"})
     submit = SubmitField(_l('Registrar'))
+
+    def validate_category(self, category):
+        if category.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma categoria válida.'))
+
+    def validate_license(self, license):
+        if license.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma licença válida.'))
 
 
 class EditSoftwareForm(FlaskForm):
@@ -152,23 +173,17 @@ class EditSoftwareForm(FlaskForm):
     keyword = StringField(_l('Palavras-Chaves: *'), id="tag", validators=[DataRequired()],
         render_kw={"placeholder": "Digite as palavras-chaves da aplicação"})
     category = SelectField(_l('Categoria: *'), validators=[DataRequired()],
-        choices=[('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
+        choices=[('Selecione','Selecione uma categoria'), ('Corona Vírus','Corona Vírus'), ('Saúde', 'Saúde'),
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
-        ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'), ('IBGE', 'IBGE'),
-        ('Segurança Pública', 'Segurança Pública'), ('Países', 'Países'),
-        ('Meio Ambiente', 'Meio Ambiente'), ('Cultura', 'Cultura'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')], default=1)
-    officialLink = StringField(_l('Página Oficial: *'),
-        validators=[DataRequired('URL verificada!'),
-        Regexp('^(http|https):\/\/[\w.\-]+(\.[\w.\-]+)+.*$', 0,
-               'URL inválida. Use https:// no início da URL')],
+        ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
+        ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
+        ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+    officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da aplicação (https://www.exemplo.com/)"})
-    owner = StringField(_l('Desenvolvedor: *'), validators=[DataRequired(),
-        Length(min=3)], render_kw={"placeholder": "Digite qual a pessoa desenvolvedora/empresa da aplicação"})
-    dateCreation = StringField(_l('Data de Criação:'),
-        render_kw={"placeholder": "Digite a data de criação (formato: 12/02/2020)"})
     license = SelectField(_l('Licença: *'), validators=[DataRequired()],
-        choices=[('Apache License 2.0', 'Apache License 2.0'),
+        choices=[('Selecione','Selecione uma licença'), ('Apache License 2.0', 'Apache License 2.0'),
         ('GNU General Public License v3.0','GNU General Public License v3.0'),
         ('MIT License','MIT License'), ('BSD 2-Clause "Simplified" License','BSD 2-Clause "Simplified" License'),
         ('BSD 3-Clause "New" or "Revised" License','BSD 3-Clause "New" or "Revised" License'),
@@ -178,10 +193,21 @@ class EditSoftwareForm(FlaskForm):
         ('GNU Alffero General Public License v3.0','GNU Alffero General Public License v3.0'),
         ('GNU General Public License v2.0','GNU General Public License v2.0'),
         ('GNU Lesser General Public License v2.1','GNU Lesser General Public License v2.1'),
-        ('Mozilla Public License 2.0','Mozilla Public License 2.0')], default=1)
+        ('Mozilla Public License 2.0','Mozilla Public License 2.0'), ('Não encontrada','Não encontrada')],
+        description='Sugira uma nova licença pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
         Length(max=550)], render_kw={"rows": 6, "placeholder": "Digite uma breve descrição sobre a aplicação"})
+    owner = StringField(_l('Desenvolvedor:'), render_kw={"placeholder": "Digite qual a pessoa desenvolvedora/empresa da aplicação"})
+    dateCreation = StringField(_l('Data de Criação:'), render_kw={"placeholder": "Digite a data de criação (formato: 12/02/2020)"})
     submit = SubmitField(_l('Registrar'))
+
+    def validate_category(self, category):
+        if category.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma categoria válida.'))
+
+    def validate_license(self, license):
+        if license.data == "Selecione":
+            raise ValidationError(_('Por favor, selecione uma licença válida.'))
 
 
 class SimilarForm(FlaskForm):
