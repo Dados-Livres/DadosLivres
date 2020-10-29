@@ -32,21 +32,23 @@
 	</div>
 </div><br>
 <div class="row">
-	<h2 class="text-center">{{_('Fonte registrada recentemente')}}</h2><br>
+	<h2 class="text-center">{{_('Últimas fontes registradas recentemente')}}</h2><br>
 	<div class="col-sm-3 col-md-4"></div>
 	<div class="col-sm-6 col-md-6">
 		{% for source in sources %}
-			{% include '_source.html' %}<br>
+			<h4><a href="{{ url_for('main.source_profile', title=source.title) }}" id="color-red">
+			{{ source.title }}</a></h4><p>{{_('Categoria')}}: {{ source.category }}</p><br>
 		{% endfor%}
 	</div>
 	<div class="col-sm-3 col-md-4"></div>
 </div>
 <div class="row">
-	<h2 class="text-center">{{_('Aplicação registrada recentemente')}}</h2><br>
+	<h2 class="text-center">{{_('Últimas aplicações registradas recentemente')}}</h2><br>
 	<div class="col-sm-3 col-md-4"></div>
 	<div class="col-sm-6 col-md-6">
 		{% for software in softwares %}
-			{% include '_software.html' %}<br>
+			<h4><a href="{{ url_for('main.software_profile', title=software.title) }}" id="color-red">
+			{{ software.title }}</a></h4><p>{{_('Categoria')}}: {{ software.category }}</p><br>
 		{% endfor%}
 	</div>
 	<div class="col-sm-3 col-md-4"></div>
