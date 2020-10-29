@@ -12,8 +12,9 @@
     <div class="col-md-3"></div>
   </div><br><br>
   <p class="text-center">
-    <a href="{{ url_for( 'auth.reset_password_request' ) }}" id="color-red">
-    {{_('Renomeie sua senha')}}</a> |
     <a href="{{ url_for( 'auth.register_request' ) }}" id="color-red">
-      {{_('Inscreva-se')}}</a></p>
+      {{_('Novo, por aqui? Inscreva-se.')}}</a></p>
+  <p class="text-center">
+    <a href="{{ url_for( 'auth.reset_password_request' ) }}" id="color-red">
+    {{_('Esqueceu a senha?')}}</a></p>
 {% endblock %}
