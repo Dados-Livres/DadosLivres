@@ -45,11 +45,11 @@ def index():
     sources = db.session.query(Source.title, Source.sphere,
         Category.category, Tag.keyword).filter(
         Category.source_id == Source.id, Source.tags).order_by(
-        Source.timestamp.desc()).paginate(page=page, per_page=1)
+        Source.timestamp.desc()).paginate(page=page, per_page=4)
     softwares = db.session.query(Software.title, Software.owner,
         Software.license, Category.category, Tag.keyword).filter(
         Category.software_id == Software.id, Software.tags).order_by(
-        Software.timestamp.desc()).paginate(page=page, per_page=1)
+        Software.timestamp.desc()).paginate(page=page, per_page=4)
     return render_template('index.html', title=(_('Página Inicial')),
         sources=sources.items, softwares=softwares.items)
 
