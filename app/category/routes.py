@@ -204,23 +204,23 @@ def Countries_Software():
     return render_template('category/Countries_Software.html',
         title=_('Países'), softwares=softwares)
 
-@bp.route('/IBGE_Source', methods=['GET', 'POST'])
-def IBGE_Source():
+@bp.route('/Financial_Source', methods=['GET', 'POST'])
+def Financial_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
-        Tag.keyword).filter(Category.category=='IBGE',
+        Tag.keyword).filter(Category.category=='Financeiro',
         Category.source_id == Source.id, Source.tags).order_by(
         Source.timestamp.desc()).all()
-    return render_template('category/IBGE_Source.html',
-        title=_('IBGE'), sources=sources)
+    return render_template('category/Financial_Source.html',
+        title=_('Financeiro'), sources=sources)
 
-@bp.route('/IBGE_Software', methods=['GET', 'POST'])
-def IBGE_Software():
+@bp.route('/Financial_Software', methods=['GET', 'POST'])
+def Financial_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
-        Category.category, Tag.keyword).filter(Category.category=='IBGE',
+        Category.category, Tag.keyword).filter(Category.category=='Financeiro',
         Category.software_id == Software.id, Software.tags).order_by(
         Software.timestamp.desc()).all()
-    return render_template('category/IBGE_Software.html',
-        title=_('IBGE'), softwares=softwares)
+    return render_template('category/Financial_Software.html',
+        title=_('Financeiro'), softwares=softwares)
 
 @bp.route('/PublicSpending_Source', methods=['GET', 'POST'])
 def PublicSpending_Source():

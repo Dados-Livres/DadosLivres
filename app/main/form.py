@@ -54,7 +54,7 @@ class SourceForm(FlaskForm):
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
-        ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
+        ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
         description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
@@ -93,7 +93,7 @@ class EditSourceForm(FlaskForm):
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
-        ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
+        ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
         description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
@@ -133,7 +133,7 @@ class SoftwareForm(FlaskForm):
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
-        ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
+        ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
         description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
@@ -177,7 +177,7 @@ class EditSoftwareForm(FlaskForm):
         ('Educação', 'Educação'), ('Cinema', 'Cinema'), ('Música', 'Música'),
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
-        ('Cultura', 'Cultura'), ('Países', 'Países'), ('IBGE', 'IBGE'),
+        ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
         description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
