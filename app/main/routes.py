@@ -82,8 +82,9 @@ def register_source():
         source.tags.append(tag)
         db.session.commit()
         flash(_('A fonte "%s" foi registrada com sucesso.' % source.title))
-    return render_template('register_source.html',
-        title=(_('Cadastrar Fonte')), form=form)
+        return redirect(url_for('main.source_profile', title=source.title))
+    return render_template('register_source.html', title=(_('Cadastrar Fonte')),
+        form=form)
 
 @bp.route('/source_profile/<title>', methods=['GET', 'POST'])
 def source_profile(title):
@@ -117,6 +118,7 @@ def edit_source(id):
         db.session.flush()
         db.session.commit()
         flash(_('A fonte "%s" foi editada com sucesso.' % source.title))
+        return redirect(url_for('main.source_profile', title=source.title))
     form.title.data = source.title
     form.keyword.data = tag.keyword
     form.category.data = category.category
@@ -163,8 +165,9 @@ def register_software():
         software.tags.append(tag)
         db.session.commit()
         flash('A aplicação "%s" foi registrada com sucesso.' % software.title)
-    return render_template('register_software.html',
-        title=(_('Cadastrar Aplicação')), form=form)
+        return redirect(url_for('main.software_profile', title=software.title))
+    return render_template('register_software.html', title=(_('Cadastrar Aplicação')),
+        form=form)
 
 @bp.route('/software_profile/<title>', methods=['GET', 'POST'])
 def software_profile(title):
@@ -197,6 +200,7 @@ def edit_software(id):
         db.session.flush()
         db.session.commit()
         flash(_('A aplicação "%s" foi editada com sucesso.' % software.title))
+        return redirect(url_for('main.software_profile', title=software.title))
     form.title.data = software.title
     form.keyword.data = tag.keyword
     form.category.data = category.category
