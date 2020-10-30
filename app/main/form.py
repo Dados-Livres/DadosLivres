@@ -56,7 +56,7 @@ class SourceForm(FlaskForm):
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
-        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+        description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
@@ -95,7 +95,7 @@ class EditSourceForm(FlaskForm):
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
-        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+        description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
@@ -135,7 +135,7 @@ class SoftwareForm(FlaskForm):
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
-        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+        description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da aplicação (https://www.exemplo.com/)"})
     license = SelectField(_l('Licença: *'), validators=[DataRequired()],
@@ -150,7 +150,7 @@ class SoftwareForm(FlaskForm):
         ('GNU General Public License v2.0','GNU General Public License v2.0'),
         ('GNU Lesser General Public License v2.1','GNU Lesser General Public License v2.1'),
         ('Mozilla Public License 2.0','Mozilla Public License 2.0'), ('Não encontrada','Não encontrada')],
-        description='Sugira uma nova licença pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+        description='Sugira uma nova licença em https://t.me/dadoslivres.')
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
         Length(max=550)], render_kw={"rows": 6, "placeholder": "Digite uma breve descrição sobre a aplicação"})
     owner = StringField(_l('Desenvolvedor:'), render_kw={"placeholder": "Digite qual a pessoa desenvolvedora/empresa da aplicação"})
@@ -179,7 +179,7 @@ class EditSoftwareForm(FlaskForm):
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Países', 'Países'), ('Financeiro', 'Financeiro'),
         ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
-        description='Sugira uma nova categoria pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+        description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da aplicação (https://www.exemplo.com/)"})
     license = SelectField(_l('Licença: *'), validators=[DataRequired()],
@@ -194,7 +194,7 @@ class EditSoftwareForm(FlaskForm):
         ('GNU General Public License v2.0','GNU General Public License v2.0'),
         ('GNU Lesser General Public License v2.1','GNU Lesser General Public License v2.1'),
         ('Mozilla Public License 2.0','Mozilla Public License 2.0'), ('Não encontrada','Não encontrada')],
-        description='Sugira uma nova licença pela página de contato ou em nosso grupo no Telegram (https://t.me/dadoslivres).')
+        description='Sugira uma nova licença em https://t.me/dadoslivres.')
     description = TextAreaField(_l('Descrição: *'), validators=[DataRequired(),
         Length(max=550)], render_kw={"rows": 6, "placeholder": "Digite uma breve descrição sobre a aplicação"})
     owner = StringField(_l('Desenvolvedor:'), render_kw={"placeholder": "Digite qual a pessoa desenvolvedora/empresa da aplicação"})
