@@ -312,7 +312,7 @@ def contact():
 
     if request.method == 'POST':
         msg = Message(form.username.data, sender='dadoslivres.testes@gmail.com',
-        recipients=['m.carolina.soares1@gmail.com'])
+        recipients=['contato@dadoslivres.org'])
         msg.body = """
         Enviado por: %s
         E-mail: %s
