@@ -55,7 +55,7 @@ class SourceForm(FlaskForm):
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Geografia', 'Geografia'), ('Finanças', 'Finanças'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Esporte e Lazer', 'Esporte e Lazer')],
         description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
@@ -94,7 +94,7 @@ class EditSourceForm(FlaskForm):
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Geografia', 'Geografia'), ('Finanças', 'Finanças'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Esporte e Lazer', 'Esporte e Lazer')],
         description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da fonte (https://www.exemplo.com/)"})
@@ -134,7 +134,7 @@ class SoftwareForm(FlaskForm):
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Geografia', 'Geografia'), ('Finanças', 'Finanças'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Esporte e Lazer', 'Esporte e Lazer')],
         description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da aplicação (https://www.exemplo.com/)"})
@@ -178,7 +178,7 @@ class EditSoftwareForm(FlaskForm):
         ('Tecnologia', 'Tecnologia'), ('Ciência', 'Ciência'),
         ('Segurança Pública', 'Segurança Pública'), ('Meio Ambiente', 'Meio Ambiente'),
         ('Cultura', 'Cultura'), ('Geografia', 'Geografia'), ('Finanças', 'Finanças'),
-        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Lazer', 'Lazer')],
+        ('Gastos Públicos', 'Gastos Públicos'), ('Clima', 'Clima'), ('Esporte e Lazer', 'Esporte e Lazer')],
         description='Sugira uma nova categoria em https://t.me/dadoslivres.')
     officialLink = StringField(_l('Página Oficial: *'), validators=[DataRequired()],
         render_kw={"placeholder": "Digite a URL da aplicação (https://www.exemplo.com/)"})

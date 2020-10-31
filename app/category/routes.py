@@ -261,17 +261,17 @@ def Climate_Software():
 @bp.route('/Recreation_Source', methods=['GET', 'POST'])
 def Recreation_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
-        Tag.keyword).filter(Category.category=='Lazer',
+        Tag.keyword).filter(Category.category=='Esporte e Lazer',
         Category.source_id == Source.id, Source.tags).order_by(
         Source.timestamp.desc()).all()
     return render_template('category/Recreation_Source.html',
-        title=_('Lazer'), sources=sources)
+        title=_('Esporte e Lazer'), sources=sources)
 
 @bp.route('/Recreation_Software', methods=['GET', 'POST'])
 def Recreation_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
-        Category.category, Tag.keyword).filter(Category.category=='Lazer',
+        Category.category, Tag.keyword).filter(Category.category=='Esporte e Lazer',
         Category.software_id == Software.id, Software.tags).order_by(
         Software.timestamp.desc()).all()
     return render_template('category/Recreation_Software.html',
-        title=_('Lazer'), softwares=softwares)
+        title=_('Esporte e Lazer'), softwares=softwares)
