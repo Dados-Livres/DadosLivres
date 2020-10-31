@@ -186,23 +186,23 @@ def Culture_Software():
     return render_template('category/Culture_Software.html',
         title=_('Cultura'), softwares=softwares)
 
-@bp.route('/Countries_Source', methods=['GET', 'POST'])
-def Countries_Source():
+@bp.route('/Geography_Source', methods=['GET', 'POST'])
+def Geography_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
-        Tag.keyword).filter(Category.category=='Países',
+        Tag.keyword).filter(Category.category=='Geografia',
         Category.source_id == Source.id, Source.tags).order_by(
         Source.timestamp.desc()).all()
-    return render_template('category/Countries_Source.html',
-        title=_('Países'), sources=sources)
+    return render_template('category/Geography_Source.html',
+        title=_('Geografia'), sources=sources)
 
-@bp.route('/Countries_Software', methods=['GET', 'POST'])
-def Countries_Software():
+@bp.route('/Geography_Software', methods=['GET', 'POST'])
+def Geography_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
-        Category.category, Tag.keyword).filter(Category.category=='Países',
+        Category.category, Tag.keyword).filter(Category.category=='Geografia',
         Category.software_id == Software.id, Software.tags).order_by(
         Software.timestamp.desc()).all()
-    return render_template('category/Countries_Software.html',
-        title=_('Países'), softwares=softwares)
+    return render_template('category/Geography_Software.html',
+        title=_('Geografia'), softwares=softwares)
 
 @bp.route('/Finances_Source', methods=['GET', 'POST'])
 def Finances_Source():
