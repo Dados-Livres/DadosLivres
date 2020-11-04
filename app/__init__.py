@@ -7,7 +7,6 @@ import threading
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from flask_migrate import Migrate, MigrateCommand
-from flask_script import Manager
 from flask_login import LoginManager
 from flask_mail import Mail, Message
 from flask_moment import Moment
