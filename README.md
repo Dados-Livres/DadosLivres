@@ -48,7 +48,14 @@ http://localhost:5000/
 ```
 
 # Lista de autores
-- Carolina Soares ([@mariacarolinass](https://gitlab.com/mariacarolinass))
+
+Carolina Soares --> GitLab: [@mariacarolinass](https://gitlab.com/mariacarolinass) | 
+GitHub: [@mariacarolinass](https://github.com/mariacarolinass) | Telegram: 
+[@carols0](https://t.me/carols0)
+
+Pedro Baesse --> GitLab: [@pbaesse](https://gitlab.com/pbaesse) | 
+GitHub: [@pbaesse](https://github.com/pbaesse) | Telegram: 
+[@pbaesse](https://t.me/pbaesse)
 
 # Licença
 Dados Livres é Licenciado sob Licença GPL-3.0.
