@@ -1,12 +1,10 @@
-# Dados Livres - Plataforma de Dados Abertos
+# Dados Livres - Plataforma de dados abertos
 
-**Plataforma Dados Livres que permite o compartilhamento e a colaboração na identificação de fontes de dados abertos e aplicações que fazem uso dessas informações.**
+Dados Livres é uma plataforma livre que permite a catalogação de fontes de dados abertos e aplicações que fazem uso dessas informações por meio de colaboração coletiva. Além disso, Dados Livres, é um Software Livre licenciado sob Licença GNU General Public License Version 3 e seu código-fonte está dísponivel aqui no GitLab.
 
-A iniciativa de desenvolver Dados Livres, surgiu inicialmente como um projeto de pesquisa em uma instituição acadêmica do IFRN, no ano de 2019, quando um aluno e uma aluna mostraram interesse de contribuir com projetos que fossem Software Livre e o Prof. Mr. Pedro Baesse apresentou a ideia de desenvolver a plataforma.
+O projeto deu início no ano de 2019, foi quando começou o desenvolvimento e planejamento do Dados Livres pela estudante [Carolina Soares](https://gitlab.com/mariacarolinass) como um projeto de pesquisa, sendo realizado em uma das instituições do IFRN e orientado pelo Prof. Mr. [Pedro Baesse](https://gitlab.com/pbaesse). Um dos diferenciais do Dados Livres é a praticidade, pois suas fontes e aplicações podem ser facilmente cadastradas sem exigir nenhum conhecimento de código dos seus usuários, facilitando encontrar vários possíveis colaboradores, entretanto, o principal difirencial da plataforma é a suas bases de dados que podem ser ligadas as aplicações criadas e vice-versa. Além disso, entre o nosso planejamento de projeto pretendemos permitir cadastrar artigos científicos e notícias que utilizam dados abertos. 
 
-Alguns diferenciais de Dados Livres é a praticidade, pois suas fontes e aplicações podem ser facilmente cadastradas por qualquer usuário inscrito na plataforma, sem exigir nenhum conhecimento de código, dessa forma, facilitando encontrar vários possíveis colaboradores. Além disso, suas bases de dados podem ser ligadas as aplicações criadas e vice-versa.
-
-A disponibilidade dessas informações abertas direcionadas a sociedade civil gera benefícios como: controle social, transparência pública, democracia, inovação cívica, combate a corrupção e vários outros.
+A plataforma de dados abertos, visa disponibilizar informações abertas direcionadas a sociedade civil, gerando benefícios como o controle social, transparência pública, democracia, inovação cívica, combate a corrupção e vários outros.
 
 # Problemas conhecidos e possíveis melhorias
 
