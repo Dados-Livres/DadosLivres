@@ -10,41 +10,67 @@ A plataforma de dados abertos, visa disponibilizar informações abertas direcio
 
 # Como instalar
 
-Faça um fork do projeto Dados Livres e em seguida clone o repositório Forkado por você:
+Faça um fork do projeto e em seguida clone o repositório forkado por você:
+
 ```sh
 $ git clone https://gitlab.com/pbaesse/dados-livres.git
-$ cd dados-livres       (entre na pasta clonada)
+$ cd dados-livres
 ```
-Use um ambiente virtual para fazer as instalações utilizadas na aplicação - Virtualenv:
+
+Use um ambiente virtual para fazer as instalações que serão utilizadas na aplicação:
+
 ```sh
 $ virtualenv venv
 ```
-Para criar o ambiente virtual:
+
+Para criar o ambiente virtual com o venv:
+
 ```sh
 $ python3 -m venv venv
 ```
+
 Para ativar o ambiente virtual:
+
 ```sh
 $ source venv/bin/activate       (Linux)
 $ source venv\Script\activate    (Windows)
 ```
+
 E finalmente, instale a lista de pacotes da aplicação:
+
 ```sh
 $ pip install -r requirements.txt
 ```
-Criando o banco de dados:
+
+## Configurando o projeto
+
+Atualize o banco de dados:
+
 ```sh
 $ flask db stamp head
-$ flask db migrate -m "criei o banco de dados"
+$ flask db migrate -m "atualizando banco de dados"
 $ flask db upgrade
 ```
+
 Para rodar a aplicação utilize o comando:
+
 ```sh
 $ flask run
 ```
+
 Acesse no seu navegador o seguinte endereço abaixo:
+
 ```sh
 http://localhost:5000/
+```
+
+Após realizar suas contribuições para o projeto use:
+
+```sh
+$ git checkout -b "nome_da_branch"
+$ git add
+$ git commit
+$ git push
 ```
 
 # Lista de autores
