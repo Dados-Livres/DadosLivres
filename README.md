@@ -61,7 +61,6 @@ GitHub: [@pbaesse](https://github.com/pbaesse) | Telegram:
 Dados Livres é Licenciado sob Licença GPL-3.0.
 
 # Contato
-E-mail para contato: pbaesse@gmail.com
 
-Outros meios de contato:
-- Telegram: [carols0](https://t.me/carols0) ou [pbaesse](https://t.me/pbaesse)
+Entre em contato conosco [preenchendo o formulário neste link](https://dadoslivres.pythonanywhere.com/contact) 
+ou mande uma mensagem no [grupo do Dados Livres no Telegram](https://t.me/dadoslivres).
