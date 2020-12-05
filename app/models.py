@@ -138,7 +138,14 @@ class Software(db.Model):
         return '{}'.format(self.title)
 
     def as_dict(self):
-        return {'title': self.title}
+        return {
+            'title': self.title,
+            'description': self.description,
+            'official_link': self.officialLink,
+            'license': self.license,
+            'owner': self.owner,
+            'date_creation': self.dateCreation
+        }
 
 
 class Tag(db.Model):
