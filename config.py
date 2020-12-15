@@ -26,3 +26,4 @@ class Config(object):
     POSTS_PER_PAGE = 20
     COMMENTS_PER_PAGE = 10
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    JSON_AS_ASCII = False
