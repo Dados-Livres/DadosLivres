@@ -3,29 +3,27 @@
 {% block app_content %}
 <div class="row">
   <div class="col-md-12 text-justify">
-    <h1 class="text-center">{{_('Sobre')}}</h1><br>
-    <h3>Todos juntos pelo conhecimento livre e programação cívicas!</h3><br>
-    <p>Com muita satisfação e carinho, estamos felizes em lançar a nossa primeria
-      versão BETA de testes da plataforma Dados Livres.
-      Precisamos da sua ajuda, sugira melhorias e ideias na <a href="{{ url_for('main.contact') }}" id="color-red"
-      target="_blank">página de contato</a> ou fale em nosso
-      <a href="https://t.me/dadoslivres" id="color-red" target="_blank">grupo no Telegram</a>,
-      além disso, confira a página de <a href="{{ url_for('main.how_to_contribute') }}"
-      id="color-red" target="_blank">como contribuir com o projeto</a>.<br><br>
-      <a href="https://docs.google.com/presentation/d/15C_phJNlLOTDPw3mGUlqlZ5dIyjPILr7MZpSTudOiVQ/edit?usp=sharing"
-      id="color-red" target="_blank">Saiba o que é dados abertos governamentais
-      e a sua importância para a sociedade cívil</a>.</p><br>
-    <h3>O que é, como surgiu e por quem?</h3><br>
-    <p>Dados Livres é uma plataforma livre que permite a catalogação de
-      fontes de dados abertos e aplicações que fazem uso dessas informações
-      por meio de colaboração coletiva. Além disso, Dados Livres, é um Software
-      Livre licenciado sob <a href="https://gitlab.com/pbaesse/dados-livres/-/blob/master/LICENSE" id="color-red"
-      target="_blank">Licença GNU General Public License Version 3</a> e seu
-      código-fonte está dísponivel no <a href="https://gitlab.com/pbaesse/dados-livres"
-      id="color-red" target="_blank">GitLab</a>.</p><p>
-      No ano de 2019, começou a ser desenvolvido e planejado o projeto Dados Livres
-      pela estudante <u>Carolina Soares</u> como um projeto de pesquisa, sendo realizado
-      em uma das instituições do IFRN e orientado pelo Prof. Me. <u>Pedro Baesse</u>.</p><br>
+    <h1 class="text-center">{{_('Sobre')}}</h1><br><br>
+    <p>É com muita satisfação e carinho que o Dados Livres foi lançado,
+      no dia 1 de novembro, na sua primeria versão BETA.</p>
+    <p>Sugira melhorias para o projeto na <a href="{{ url_for('main.contact') }}"
+      id="color-red" target="_blank">página de contato</a> ou no
+      <a href="https://t.me/dadoslivres" id="color-red" target="_blank">
+      grupo do Telegram</a>.</p>
+    <p>Confira a página de <a href="{{ url_for('main.how_to_contribute') }}"
+      id="color-red" target="_blank">como contribuir com o projeto</a>.</p><br>
+    <h3>Dados Livres: Plataforma livre de dados abertos</h3><br><br>
+    <p>A ideia de desenvolver a plataforma (Dados Livres) surgiu em 2018,
+      quando identificamos a importância dos dados abertos e de desenvolver uma
+      aplicação disponibilizada em software livre. O projeto é licenciado sob
+      <a href="https://gitlab.com/pbaesse/dados-livres/-/blob/master/LICENSE"
+      id="color-red" target="_blank">Licença GNU Version 3</a> e o código fonte
+      está dísponivel no <a href="https://gitlab.com/pbaesse/dados-livres"
+      id="color-red" target="_blank">GitLab</a>.</p>
+    <p>O Dados Livres é uma plataforma livre que permite a catalogação de
+      fontes de dados abertos e aplicações cívicas por meio de colaboração coletiva.
+      A plataforma é mantida pela estudante e pesquisadora Carolina Soares e
+      orientado pelo Prof. Me. Pedro Baesse no IFRN - campus Ceará-Mirim.</p><br>
     </div>
   </div>
   <div class="row">
@@ -59,18 +57,38 @@
     <div class="col-md-2"></div>
   </div><br><br>
   <div class="row">
-  <div class="col-md-12 text-justify">
-    <h3>Saiba mais</h3><br>
-    <p>Alguns diferenciais de Dados Livres é a praticidade, pois suas fontes e
-      aplicações podem ser facilmente cadastradas por qualquer usuário inscrito
-      na plataforma, sem exigir nenhum conhecimento de código, dessa forma,
-      facilitando encontrar vários possíveis colaboradores. Além disso, suas
-      bases de dados podem ser ligadas as aplicações criadas e vice-versa.</p>
-    <p>O trabalho que começou com nome de Plataforma Livre de Dados Abertos
-      Governamentais visa disponibilizar informações abertas direcionadas a
-      sociedade civil, para assim, gerar benefícios como: <em>controle social,
-      transparência pública, democracia, inovação cívica, combate a corrupção e
-      vários outros</em>.</p>
+    <div class="col-md-12 text-justify"><br>
+      <p>Existem iniciativas parecidas como o Brasil.IO e Colaboradados.
+        Porém, o Dados Livres se diferencia pela facilidade de cadastro, são os
+        próprios usuários da plataforma que podem cadastrar as fontes de dados
+        abertos e aplicações cívicas. A plataforma facilita no trabalho de
+        jornalistas, pessoas gerais e desenvolvedores para, encontrar, colaborar
+        ou usar de alguma forma útil informações em dados abertos.</p>
+      <p>Outro diferencial da plataforma, é a proposta de inovação de ligação das
+        fontes de dados abertos com as aplicações cívicas e vice-versa.
+        Em exemplo, o usuário pode saber quais as fontes de dados abertos que uma
+        aplicação cívica utiliza.</p>
+      <p>Por fim, é esperado que o Dados Livres possa criar um ambiente que facilite a
+        participação da população no controle social e difusão de dados abertos
+        para os mais diversos fins.</p>
+      <p><b>Todos juntos pelo conhecimento livre e programação cívicas!</b></p><br>
+      <p><a href="https://docs.google.com/presentation/d/15C_phJNlLOTDPw3mGUlqlZ5dIyjPILr7MZpSTudOiVQ/edit?usp=sharing" id="color-red" target="_blank">
+      Saiba o que é dados abertos governamentais e a sua importância para a sociedade cívil</a>.</p>
     </div>
+  </div><br><br><br><br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-sm-6 col-md-4"><br>
+      <div style="width:350px; display: block; margin: 0 auto; border: 0; text-align: center">
+        <img src="static/image/Logo-Dados-Livres2.png" alt="Logo do Dados Livres" style="width:50%"><br><br>
+      </div>
+    </div><div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-sm-6 col-md-4"><br>
+      <div style="width:350px; display: block; margin: 0 auto; border: 0; text-align: center">
+        <img src="static/image/logo-ifrn-cm.png.png" alt="Logo do IFRN" style="width:50%"><br><br>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
   </div><br><br>
 {% endblock %}
