@@ -104,7 +104,15 @@ class Source(db.Model):
         return '{}'.format(self.title)
 
     def as_dict(self):
-        return {'title': self.title}
+        return {
+            'title': self.title,
+            'sphere': self.sphere,
+            'city': self.city,
+            'state': self.state,
+            'country': self.state,
+            'description': self.description,
+            'official_link': self.officialLink
+        }
 
 
 class Software(db.Model):
@@ -117,7 +125,7 @@ class Software(db.Model):
     owner = db.Column(db.String(200), index=True)
     dateCreation = db.Column(db.String(200), index=True, default=datetime.utcnow)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    similar = db.relationship('Source', secondary=similar,
+    similar = db.relationship('Software', secondary=similar,
         backref=db.backref('software_similar', lazy='dynamic'))
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('software_tag', lazy='dynamic'))
@@ -130,7 +138,14 @@ class Software(db.Model):
         return '{}'.format(self.title)
 
     def as_dict(self):
-        return {'title': self.title}
+        return {
+            'title': self.title,
+            'description': self.description,
+            'official_link': self.officialLink,
+            'license': self.license,
+            'owner': self.owner,
+            'date_creation': self.dateCreation
+        }
 
 
 class Tag(db.Model):
