@@ -1,10 +1,10 @@
-# Dados Livres - Plataforma de dados abertos
+# Dados Livres: plataforma livre de dados abertos
 
-Dados Livres é uma plataforma livre que permite a catalogação de fontes de dados abertos e aplicações que fazem uso dessas informações por meio de colaboração coletiva. Além disso, Dados Livres, é um Software Livre licenciado sob Licença GNU General Public License Version 3 e seu código-fonte está dísponivel aqui no GitLab.
+A plataforma (Dados Livres) surgiu em 2018 com o objetivo de permitir a catalogação de fontes de dados abertos e aplicações cívicas por meio de colaboração coletiva. O projeto é mantido pela estudante e pesquisadora [Carolina Soares](https://gitlab.com/mariacarolinass), orientado pelo Prof. Me. [Pedro Baesse](https://gitlab.com/pbaesse) e originalmente desenvolvido no IFRN.
 
-O projeto deu início no ano de 2019, foi quando começou o desenvolvimento e planejamento do Dados Livres pela estudante [Carolina Soares](https://gitlab.com/mariacarolinass) como um projeto de pesquisa, sendo realizado em uma das instituições do IFRN e orientado pelo Prof. Mr. [Pedro Baesse](https://gitlab.com/pbaesse). Um dos diferenciais do Dados Livres é a praticidade, pois suas fontes e aplicações podem ser facilmente cadastradas sem exigir nenhum conhecimento de código dos seus usuários, facilitando encontrar vários possíveis colaboradores, entretanto, o principal difirencial da plataforma é a suas bases de dados que podem ser ligadas as aplicações criadas e vice-versa. Além disso, entre o nosso planejamento de projeto pretendemos permitir cadastrar artigos científicos e notícias que utilizam dados abertos. 
+O Dados Livres é um Software Livre licenciado sob Licença GNU GPLv3 e com código fonte disponibilizado no GitLab. Alguns de seus diferenciais é a praticidade, pois suas fontes e aplicações são facilmente cadastradas na plataforma sem exigir nenhum conhecimento de código dos seus usuários. Outro diferencial é a ligação de fontes de dados abertos com as aplicações cívicas na sua página de perfil e vice-versa.
 
-A plataforma de dados abertos, visa disponibilizar informações abertas direcionadas a sociedade civil, gerando benefícios como o controle social, transparência pública, democracia, inovação cívica, combate a corrupção e vários outros.
+Entre os planejamentos futuros do projeto é pretendido permitir cadastrar artigos científicos e notícias que utilizam de dados abertos. Por fim, será esperado que o Dados Livres possa criar um ambiente que facilite a participação da população no controle social e difusão de dados abertos para os mais diversos fins.
 
 # Problemas conhecidos e possíveis melhorias
 
@@ -75,12 +75,12 @@ $ git push
 
 # Lista de autores
 
-Carolina Soares --> GitLab: [@mariacarolinass](https://gitlab.com/mariacarolinass) | 
-GitHub: [@mariacarolinass](https://github.com/mariacarolinass) | Telegram: 
+Carolina Soares --> GitLab: [@mariacarolinass](https://gitlab.com/mariacarolinass) |
+GitHub: [@mariacarolinass](https://github.com/mariacarolinass) | Telegram:
 [@carols0](https://t.me/carols0)
 
-Pedro Baesse --> GitLab: [@pbaesse](https://gitlab.com/pbaesse) | 
-GitHub: [@pbaesse](https://github.com/pbaesse) | Telegram: 
+Pedro Baesse --> GitLab: [@pbaesse](https://gitlab.com/pbaesse) |
+GitHub: [@pbaesse](https://github.com/pbaesse) | Telegram:
 [@pbaesse](https://t.me/pbaesse)
 
 # Licença
@@ -88,5 +88,5 @@ Dados Livres é Licenciado sob Licença GPL-3.0.
 
 # Contato
 
-Entre em contato conosco [preenchendo o formulário neste link](https://dadoslivres.pythonanywhere.com/contact) 
+Entre em contato conosco [preenchendo o formulário neste link](https://dadoslivres.pythonanywhere.com/contact)
 ou mande uma mensagem no [grupo do Dados Livres no Telegram](https://t.me/dadoslivres).
