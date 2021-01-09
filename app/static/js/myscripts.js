@@ -30,7 +30,7 @@ $(document).ready(function () {
   ];
 
   function loadTitles() {
-    $.getJSON('/_autocomplete', function (data, status, xhr) {
+    $.getJSON('/_similar', function (data, status, xhr) {
       for (var i = 0; i < data.length; i++) {
         titles.push(data[i].title);
       }
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
   loadTitles();
 
-  $('#autocomplete').autocomplete({
+  $('#similar').autocomplete({
     source: titles
   });
 });

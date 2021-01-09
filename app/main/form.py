@@ -210,10 +210,10 @@ class EditSoftwareForm(FlaskForm):
             raise ValidationError(_('Por favor, selecione uma licença válida.'))
 
 
-class SimilarForm(FlaskForm):
-    name = StringField(_l('Título: *'), id='autocomplete', validators=[DataRequired(),
-        Length(min=0, max=100)], render_kw={"placeholder": "Digite o nome de um título registrado em Dados Livres"})
-    submit = SubmitField(_l('Registrar'))
+class SimilarTitlesForm(FlaskForm):
+    title = StringField(_l('Título: *'), id='similar', validators=[DataRequired()],
+        render_kw={"placeholder": "Digite um título já cadastrado"})
+    submit = SubmitField(_l('Salvar'))
 
 
 class CommentForm(FlaskForm):
