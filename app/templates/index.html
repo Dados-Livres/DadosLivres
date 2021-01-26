@@ -5,9 +5,17 @@
 	<h1 class="text-center">{{ _('Dados Livres') }}</h1><br>
 	<h4 class="text-center">{{ _('Plataforma livre que permite a catalogação de
 		fontes de dados abertos e aplicações cívicas por meio de colaboração coletiva.') }}</h4>
-</div>
+</div><br>
 <div class="row">
 	<h2 class="text-center">{{_('Encontre as principais categorias de fontes de dados abertos')}}</h2><br>
+	{% if g.search_form %}
+		<form class="navbar-form" method="get" action="{{ url_for('main.search') }}">
+			<div class="form-group" style="box-shadow: 0 2px 14px rgba(0, 0, 0, 0.11); border-color: #03071E;">
+				{{ g.search_form.q(
+					size=122, class='form-control', placeholder=g.search_form.q.label.text) }}
+			</div>
+		</form>
+	{% endif %}<br><br>
 	<div class="col-sm-4 col-md-4">
 		<h4 class="text-center"><a class="topic-grid-item" href="{{ url_for('category.Covid19_Source') }}" id="category-link">{{_('Corona Vírus')}}</a></h4>
 		<h4 class="text-center"><a class="topic-grid-item" href="{{ url_for('category.Health_Source') }}" id="category-link">{{_('Saúde')}}</a></h4>
