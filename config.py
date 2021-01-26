@@ -19,11 +19,11 @@ class Config(object):
     MAIL_PORT = 587
     MAIL_USE_TLS = 1
     MAIL_USERNAME = 'dadoslivres.testes@gmail.com'
-    MAIL_PASSWORD = 'carolina.2019'
+    MAIL_PASSWORD = 'carol'
     ADMINS = ['dadoslivres.testes@gmail.com']
     LANGUAGES = ['en', 'pt']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
-    POSTS_PER_PAGE = 20
+    SOURCES_PER_PAGE = 20
     COMMENTS_PER_PAGE = 10
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     JSON_AS_ASCII = False
