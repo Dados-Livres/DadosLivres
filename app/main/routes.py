@@ -7,7 +7,8 @@ import json
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import db
-from app.main.form import EditProfileForm, EditPasswordForm, \
+from flask import g
+from app.main.form import SearchForm, EditProfileForm, EditPasswordForm, \
     SourceForm, EditSourceForm, SoftwareForm, EditSoftwareForm, \
     SimilarTitlesForm, CommentForm, ReportForm, ContactForm
 from app.models import User, Source, Software, Tag, Category, \
@@ -21,7 +22,22 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+    g.search_form = SearchForm()
     g.locale = str(get_locale())
+
+@bp.route('/search')
+def search():
+    if not g.search_form.validate():
+        return redirect(url_for('main.index'))
+    page = request.args.get('page', 1, type=int)
+    sources, total = Source.search(g.search_form.q.data, page,
+        current_app.config['SOURCES_PER_PAGE'])
+    next_url = url_for('main.search', q=g.search_form.q.data, page=page + 1) \
+        if total > page * current_app.config['SOURCES_PER_PAGE'] else None
+    prev_url = url_for('main.search', q=g.search_form.q.data, page=page - 1) \
+        if page > 1 else None
+    return render_template('search.html', title=_('Pesquisa'), sources=sources,
+        next_url=next_url, prev_url=prev_url)
 
 @bp.route('/_similar', methods=['GET'])
 def similar():
@@ -36,6 +52,7 @@ def tag():
     keyword = Tag.query.all()
     tags = [r.as_dict() for r in keyword]
     return jsonify(tags)
+
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
