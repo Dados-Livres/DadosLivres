@@ -12,6 +12,18 @@ from app.models import User, Source, Software, Tag, Category, \
     Comment, Report
 
 
+class SearchForm(FlaskForm):
+    q = StringField(_l('Pesquise pelo título de alguma fonte'),
+        validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+        super(SearchForm, self).__init__(*args, **kwargs)
+
+
 class EditProfileForm(FlaskForm):
     username = StringField(_l('Nome: *'), validators=[DataRequired(),
         Length(min=3)], render_kw={"placeholder": "Digite um nome de usuário"})
