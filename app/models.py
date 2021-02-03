@@ -25,6 +25,9 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return '{}'.format(self.nickname)
 
+    def count_sources(self, sources):
+        return self.sources.count()
+
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
