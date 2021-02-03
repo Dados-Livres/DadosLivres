@@ -5,7 +5,7 @@
 	<h1 class="text-center">{{ _('Dados Livres') }}</h1><br>
 	<h4 class="text-center">{{ _('Plataforma livre que permite a catalogação de
 		fontes de dados abertos e aplicações cívicas por meio de colaboração coletiva.') }}</h4>
-</div>
+</div><br>
 <div class="row">
 	<h2 class="text-center">{{_('Encontre as principais categorias de fontes de dados abertos')}}</h2><br>
 	<div class="col-sm-4 col-md-4">
@@ -29,9 +29,9 @@
 		<h4 class="text-center"><a class="topic-grid-item" href="{{ url_for('category.Finances_Source') }}" id="category-link">{{_('Finanças')}}</a></h4>
 		<h4 class="text-center"><a class="topic-grid-item" href="{{ url_for('category.Climate_Source') }}" id="category-link">{{_('Clima')}}</a></h4>
 	</div>
-</div><br>
+</div><br><br>
 <div class="row">
-	<h2 class="text-center">{{_('Últimas fontes registradas recentemente')}}</h2><br>
+	<h2 class="text-center">{{_('Fontes registradas recentemente')}}</h2><br>
 	<div class="col-sm-3 col-md-4"></div>
 	<div class="col-sm-6 col-md-6">
 		{% for source in sources %}
@@ -40,9 +40,9 @@
 		{% endfor%}
 	</div>
 	<div class="col-sm-3 col-md-4"></div>
-</div>
+</div><br>
 <div class="row">
-	<h2 class="text-center">{{_('Últimas aplicações registradas recentemente')}}</h2><br>
+	<h2 class="text-center">{{_('Aplicações registradas recentemente')}}</h2><br>
 	<div class="col-sm-3 col-md-4"></div>
 	<div class="col-sm-6 col-md-6">
 		{% for software in softwares %}
