@@ -335,3 +335,10 @@ def contact():
         return render_template('contact.html', title=(_('Contato')), form=form)
     elif request.method == 'GET':
         return render_template('contact.html', title=(_('Contato')), form=form)
+
+@bp.route('/ranking', methods=['GET', 'POST'])
+def ranking():
+    sources = User.query.order_by(User.sources.count_sources()).limit(15).all()
+    softwares = User.query.order_by(User.last_seen.desc()).limit(15).all()
+    return render_template('ranking.html', sources=sources, softwares=softwares,
+        title=(_('Ranking de Colaboração')))
