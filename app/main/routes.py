@@ -338,7 +338,7 @@ def contact():
 
 @bp.route('/ranking', methods=['GET', 'POST'])
 def ranking():
-    sources = User.query.order_by(User.sources.count_sources()).limit(15).all()
+    sources = User.query.order_by(User.last_seen.desc()).limit(15).all()
     softwares = User.query.order_by(User.last_seen.desc()).limit(15).all()
     return render_template('ranking.html', sources=sources, softwares=softwares,
         title=(_('Ranking de Colaboração')))
