@@ -12,6 +12,7 @@ from app.main.form import EditProfileForm, EditPasswordForm, \
     SimilarTitlesForm, CommentForm, ReportForm, ContactForm
 from app.models import User, Source, Software, Tag, Category, \
     Comment, Report
+from sqlalchemy import func, desc
 from flask_mail import Message
 from app import mail
 from app.main import bp
@@ -338,7 +339,11 @@ def contact():
 
 @bp.route('/ranking', methods=['GET', 'POST'])
 def ranking():
-    sources = User.query.order_by(User.last_seen.desc()).limit(15).all()
-    softwares = User.query.order_by(User.last_seen.desc()).limit(15).all()
-    return render_template('ranking.html', sources=sources, softwares=softwares,
-        title=(_('Ranking de Colaboração')))
+    sources_user = db.session.query(User).join(
+        User.sources).group_by(User).order_by(
+        desc(func.count(Source.user_id))).limit(15)
+    softwares_user = db.session.query(User).join(
+        User.softwares).group_by(User).order_by(
+        desc(func.count(Software.user_id))).limit(15)
+    return render_template('ranking.html', sources_user=sources_user,
+        softwares_user=softwares_user, title=(_('Ranking de Colaboração')))
