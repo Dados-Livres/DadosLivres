@@ -9,9 +9,10 @@ from flask_babel import _, get_locale
 from app import db
 from app.main.form import EditProfileForm, EditPasswordForm, \
     SourceForm, EditSourceForm, SoftwareForm, EditSoftwareForm, \
-    CommentForm, ReportForm, ContactForm
+    SimilarTitlesForm, CommentForm, ReportForm, ContactForm
 from app.models import User, Source, Software, Tag, Category, \
     Comment, Report
+from sqlalchemy import func, desc
 from flask_mail import Message
 from app import mail
 from app.main import bp
@@ -23,8 +24,8 @@ def before_request():
         db.session.commit()
     g.locale = str(get_locale())
 
-@bp.route('/_title', methods=['GET'])
-def title():
+@bp.route('/_similar', methods=['GET'])
+def similar():
     source_title = Source.query.all()
     software_title = Software.query.all()
     sources = [r.as_dict() for r in source_title]
@@ -88,8 +89,20 @@ def register_source():
 @bp.route('/source_profile/<title>', methods=['GET', 'POST'])
 def source_profile(title):
     source = Source.query.filter_by(title=title).first_or_404()
-    return render_template('source_profile.html',
-        title=(_('Perfil da Fonte')), source=source)
+    page = request.args.get('page', 1, type=int)
+    similar = db.session.query(Source.title, Category.category).filter(
+        Category.source_id == Source.id, Category.category == Category.category).order_by(
+        Source.timestamp.desc()).paginate(page=page, per_page=3)
+    form = SimilarTitlesForm()
+    if form.validate_on_submit():
+        if current_user.is_anonymous:
+            return redirect(url_for('auth.login'))
+        software = Software(title=form.title.data)
+        software.similar.append(software)
+        db.session.add(software)
+        db.session.commit()
+    return render_template('source_profile.html', title=(_('Perfil da Fonte')),
+        source=source, similar=similar.items, form=form)
 
 @bp.route('/edit_source/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -170,9 +183,10 @@ def register_software():
 
 @bp.route('/software_profile/<title>', methods=['GET', 'POST'])
 def software_profile(title):
+    form = SimilarTitlesForm()
     software = Software.query.filter_by(title=title).first_or_404()
     return render_template('software_profile.html',
-        title=(_('Perfil da Aplicação')), software=software)
+        title=(_('Perfil da Aplicação')), software=software, form=form)
 
 @bp.route('/edit_software/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -322,3 +336,14 @@ def contact():
         return render_template('contact.html', title=(_('Contato')), form=form)
     elif request.method == 'GET':
         return render_template('contact.html', title=(_('Contato')), form=form)
+
+@bp.route('/ranking', methods=['GET', 'POST'])
+def ranking():
+    sources_user = db.session.query(User).join(
+        User.sources).group_by(User).order_by(
+        desc(func.count(Source.user_id))).limit(15)
+    softwares_user = db.session.query(User).join(
+        User.softwares).group_by(User).order_by(
+        desc(func.count(Software.user_id))).limit(15)
+    return render_template('ranking.html', sources_user=sources_user,
+        softwares_user=softwares_user, title=(_('Ranking de Colaboração')))

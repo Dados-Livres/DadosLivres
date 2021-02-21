@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+  <div class="row">
+    <div class=" col-md-12 text-center">
+      <h1>Ranking de Colaboração</h1>
+      <p>Confira o ranking de colaboração dos usuários que mais cadastraram fontes e aplicações.</p>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Por fontes cadastradas:</h3><br>
+      <ol>{% for user in sources_user %}<hr>
+        <li>{% include '_rankingSources.html' %}</li><hr>{% endfor %}</ol>
+    </div>
+    <div class="col-md-12"><br><br>
+      <h3>Por aplicações cadastradas:</h3><br>
+      <ol>{% for user in softwares_user %}<hr>
+        <li>{% include '_rankingSoftwares.html' %}</li><hr>{% endfor %}</ol>
+    </div>
+  </div><br><br>
+{% endblock %}
