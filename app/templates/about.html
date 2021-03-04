@@ -124,4 +124,26 @@
         target="_blank">8ª Mostra Tecnológica do IFRN (2020)</a></p>
     </div>
   </div><br><br>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Pessoas que contribuiram de alguma forma em especial com o projeto</h3><br>
+      <p>Atualizado manualmente.</p>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-sm-6 col-md-8"><br><br>
+      <div style="width:350px; display: block; margin: 0 auto; border: 0; text-align: center">
+        <figure>
+          <img src="{{ collaborating_user.avatar(100) }}" alt="foto do usuário"
+            style="width:50%; border-radius: 100px">
+          <figcaption><br>
+            <p><a href="{{ url_for('main.user', nickname=nickname) }}fernando-ms"
+              id="color-red">@fernando-ms</a></p>
+            <p>Tipo de Contribuição: Código <br>
+            Criou estrutura básica da API</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div><br><br>
 {% endblock %}
