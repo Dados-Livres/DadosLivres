@@ -9,14 +9,54 @@
   </div><br><br>
   <div class="row">
     <div class="col-md-12">
-      <h3>Por fontes cadastradas:</h3><br>
-      <ol>{% for user in sources_user %}<hr>
-        <li>{% include '_rankingSources.html' %}</li><hr>{% endfor %}</ol>
+      <table class="table table-striped" style="width: 50% !important; margin: auto;">
+        <h3 class="text-center">Fontes Cadastradas</h3><br>
+        <thead>
+          <tr>
+            <!--<th scope="col"><p>#</p></th> -->
+            <th scope="col"><p>Nome do usuário</p></th>
+            <th scope="col"><p>Total</p></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for user in sources_user %}
+          <tr>
+            <!--<th scope="row"><ol><p><li></li></p></ol></th>-->
+            <td>
+              <figure><img src="{{ user.avatar(50) }}" alt="foto do usuário"
+                style="float: left; margin: 10px 20px 20px 0; border-radius: 40px; border-color: #f8f8f8;"></figure>
+              <p><a href="{{ url_for('main.user', nickname=user.nickname) }}"
+                id="color-red">@{{ user.nickname }}</a></p>
+            </td>
+            <td><p style="width: 30%; margin: auto;">{{ user.sources.count() }}</p></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     </div>
     <div class="col-md-12"><br><br>
-      <h3>Por aplicações cadastradas:</h3><br>
-      <ol>{% for user in softwares_user %}<hr>
-        <li>{% include '_rankingSoftwares.html' %}</li><hr>{% endfor %}</ol>
+      <table class="table table-striped" style="width: 50% !important;margin: auto;">
+        <h3 class="text-center">Aplicações Cadastradas</h3><br>
+        <thead>
+          <tr>
+            <th scope="col"><p>Nome do usuário</p></th>
+            <th scope="col"><p>Total</p></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in softwares_user %}
+            <tr>
+              <td>
+                <figure><img src="{{ user.avatar(50) }}" alt="foto do usuário"
+                  style="float: left; margin: 10px 20px 20px 0; border-radius: 40px; border-color: #f8f8f8;"></figure>
+                <p><a href="{{ url_for('main.user', nickname=user.nickname) }}"
+                  id="color-red">@{{ user.nickname }}</a></p>
+              </td>
+              <td><p style="width: 30%; margin: 20px auto 20px auto;">{{ user.softwares.count() }}</p></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div><br><br>
 {% endblock %}
