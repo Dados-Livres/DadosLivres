@@ -295,7 +295,9 @@ def edit_password():
 
 @bp.route('/about', methods=['GET', 'POST'])
 def about():
-    return render_template('about.html', title=(_('Sobre')))
+    collaborating_user = User.query.filter_by(nickname='fernando-ms').first_or_404()
+    return render_template('about.html', title=(_('Sobre')),
+        collaborating_user=collaborating_user)
 
 @bp.route('/how_to_contribute', methods=['GET', 'POST'])
 def how_to_contribute():
