@@ -267,3 +267,8 @@ app.db
 plataforma.log*
 
 .env
+
+## Eu não concordo com a interpretação dos mantenedores do pipenv
+Pipfile.lock
+poetry.lock
+
