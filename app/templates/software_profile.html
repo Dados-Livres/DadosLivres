@@ -16,7 +16,7 @@
         <p><a href="{{ url_for('main.edit_software', id=software.id) }}" id="color-red">{{_('Editar aplicação')}}</a> |
           <a href="{{ url_for('main.deletar_software', id=software.id) }}" id="color-red">{{_('Apagar aplicação')}}</a></p>
       {% endif %}
-      <br><h4><a href="{{ software.officialLink }}" id="buttonPerfil" target="_blank">{{_('Visitar página oficial')}}</a><h4><br>
+      <br><h4><a href="{{ software.officialLink }}" id="buttonPerfil">{{_('Visitar página oficial')}}</a><h4><br>
       <h4><hr>{{_('Aplicação registrada por')}}:
         <a href="{{ url_for('main.user', nickname=software.author.nickname ) }}" id="color-red">
           @{{ software.author.nickname }}</a><hr></h4>
