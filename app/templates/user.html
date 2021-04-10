@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block app_content %}
+
   <div class="row">
     <div class="col-md-12">
       <figure><img src="{{ user.avatar(100) }}" id="imagem_user" alt="foto de perfil do usuário"></figure>
@@ -10,6 +11,7 @@
         id="color-red" target="_blank">Gravatar</a>.</small><br><br>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
       <p>{% if user.about_me %}{{ user.about_me }}{% endif %}</p><br>
@@ -19,16 +21,18 @@
       {% endif %}
     </div>
   </div><hr><br><br>
-    <div class="row">
-      <div class="col-md-12">
-        <h4>{{_('Fontes registradas por')}} {{ user.username }}:</h4>
-        {% for source in sources %}
-          <hr>{% include '_source.html' %}<hr>
-        {% endfor %}<br><br>
-        <h4>{{_('Aplicações registradas por')}} {{ user.username }}:</h4>
-        {% for software in softwares %}
-          <hr>{% include '_software.html' %}<hr>
-        {% endfor %}
-      </div>
-    </div><br><br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{_('Fontes registradas por')}} {{ user.username }}:</h4>
+      {% for source in sources %}
+        <hr>{% include '_source.html' %}<hr>
+      {% endfor %}<br><br>
+      <h4>{{_('Aplicações registradas por')}} {{ user.username }}:</h4>
+      {% for software in softwares %}
+        <hr>{% include '_software.html' %}<hr>
+      {% endfor %}
+    </div>
+  </div><br><br>
+  
 {% endblock %}

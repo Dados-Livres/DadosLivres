@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block app_content %}
+
   <div class="row">
     <div class="col-md-12">
       <h1>{% if source.title %}{{ source.title }}{% endif %}</h1><br>
@@ -22,6 +23,7 @@
             @{{ source.author.nickname }}</a><hr></h4><br>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
       <h2>Fontes semelhantes</h2><br>
@@ -44,4 +46,5 @@
       </p>
     </div>
   </div><br><br>
+
 {% endblock %}
