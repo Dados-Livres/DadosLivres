@@ -266,4 +266,6 @@ venv*
 app.db
 plataforma.log*
 
+migrations/
+
 .env
