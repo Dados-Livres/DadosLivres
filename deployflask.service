@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve dados-livres
+After=network.target
+
+[Service]
+User=baesse
+Group=www-data
+WorkingDirectory=/home/baesse/dados-livres
+Environment="PATH=/home/baesse/dados-livres/venv/bin"
+ExecStart=/home/baesse/dados-livres/venv/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target
