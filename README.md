@@ -1,10 +1,26 @@
 # Dados Livres: plataforma livre de dados abertos
 
-A plataforma (Dados Livres) surgiu em 2018 com o objetivo de permitir a catalogação de fontes de dados abertos e aplicações cívicas por meio de colaboração coletiva. O projeto é mantido pela estudante e pesquisadora [Carolina Soares](https://gitlab.com/mariacarolinass), orientado pelo Prof. Me. [Pedro Baesse](https://gitlab.com/pbaesse) e originalmente desenvolvido no IFRN.
+A ideia de desenvolver o Dados Livres surgiu em 2018, mas o seu desenvolvimento
+iniciou em 2019 como um projeto de pesquisa no IFRN. Assim, o projeto foi
+idealizado e desenvolvido pela estudante
+[Carolina Soares](https://gitlab.com/mariacarolinass) e orientado pelo professor
+[Pedro Baesse](https://gitlab.com/pbaesse).
 
-O Dados Livres é um Software Livre licenciado sob Licença GNU GPLv3 e com código fonte disponibilizado no GitLab. Alguns de seus diferenciais é a praticidade, pois suas fontes e aplicações são facilmente cadastradas na plataforma sem exigir nenhum conhecimento de código dos seus usuários. Outro diferencial é a ligação de fontes de dados abertos com as aplicações cívicas na sua página de perfil e vice-versa.
+O Dados Livres é um ambiente web para catalogação de fontes de dados abertos
+e aplicações cívicas por meio de colaboração coletiva. Além disso, o código do
+projeto está disponibilizado no GitLab para contribuições gerais com o seu
+software livre.
 
-Entre os planejamentos futuros do projeto é pretendido permitir cadastrar artigos científicos e notícias que utilizam de dados abertos. Por fim, será esperado que o Dados Livres possa criar um ambiente que facilite a participação da população no controle social e difusão de dados abertos para os mais diversos fins.
+Alguns diferenciais do projeto é a praticidade, pois suas fontes e aplicações
+são facilmente cadastradas na plataforma sem exigir nenhum conhecimento de
+código. Outro diferencial é a ligação de fontes de dados abertos com as
+aplicações cívicas, na sua página de perfil, e vice-versa.
+
+Entre os planejamentos futuros do projeto é pretendido permitir cadastrar
+artigos científicos e notícias que utilizam de dados abertos. Por fim, será
+esperado que o Dados Livres possa criar um ambiente que facilite a
+participação da população no controle social e difusão de dados abertos
+para os mais diversos fins.
 
 # Problemas conhecidos e possíveis melhorias
 
