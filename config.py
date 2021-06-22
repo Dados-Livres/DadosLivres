@@ -19,7 +19,7 @@ class Config(object):
     MAIL_PORT = 587
     MAIL_USE_TLS = 1
     MAIL_USERNAME = 'dadoslivres.testes@gmail.com'
-    MAIL_PASSWORD = 'carolina.2019'
+    MAIL_PASSWORD = 'dadoslivres'
     ADMINS = ['dadoslivres.testes@gmail.com']
     LANGUAGES = ['en', 'pt']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
