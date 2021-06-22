@@ -26,20 +26,22 @@ para os mais diversos fins.
 
 # Como instalar
 
-Faça um fork do projeto e em seguida clone o repositório forkado por você:
+Primeiro faça um fork do projeto!
+
+Em seguida clone o repositório que você fez o fork:
 
 ```sh
-$ git clone https://gitlab.com/pbaesse/dados-livres.git
+$ git clone https://gitlab.com/seu-usuario/dados-livres
 $ cd dados-livres
 ```
 
-Use um ambiente virtual para fazer as instalações que serão utilizadas na aplicação:
+Use um ambiente virtual para instalar a aplicação:
 
 ```sh
 $ virtualenv venv
 ```
 
-Para criar o ambiente virtual com o venv:
+Crie o ambiente virtual chamado venv:
 
 ```sh
 $ python3 -m venv venv
@@ -60,11 +62,11 @@ $ pip install -r requirements.txt
 
 ## Configurando o projeto
 
-Atualize o banco de dados:
+Inicie o banco de dados:
 
 ```sh
-$ flask db stamp head
-$ flask db migrate -m "atualizando banco de dados"
+$ flask db init
+$ flask db migrate -m "criando banco de dados"
 $ flask db upgrade
 ```
 
@@ -80,7 +82,7 @@ Acesse no seu navegador o seguinte endereço abaixo:
 http://localhost:5000/
 ```
 
-Após realizar suas contribuições para o projeto use:
+Para contribuir com o projeto use:
 
 ```sh
 $ git checkout -b "nome_da_branch"
