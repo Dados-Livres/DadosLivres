@@ -1,7 +1,7 @@
 server {
 	# listen on port 80 (http)
 	listen 80;
-	server_name _;
+	server_name liwa.ifrn.edu.br;
 	
 	location / {
 		# redirect any requests to the same URL but on https
@@ -12,7 +12,7 @@ server {
 server {
 	# listen on port 443 (https)
 	listen 443 ssl;
-	server_name _;
+	server_name liwa.ifrn.edu.br;
 	
 	# location of the self-signed SSL certificate
 	ssl_certificate /home/baesse/dados-livres/certs/cert.pem;
@@ -24,7 +24,7 @@ server {
 
 	location / {
 		# forward application requests to the gunicorn server
-		proxy_pass http://localhost:8000;
+		proxy_pass http://unix:/home/baesse/dados-livres/dados-livres.sock;;
 		proxy_redirect off;
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
