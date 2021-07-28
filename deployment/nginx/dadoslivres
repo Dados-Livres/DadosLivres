@@ -1,0 +1,12 @@
+server {
+	
+	server_name my_domain www.my_domain;
+
+	location / {
+		
+		include uwsgi_params;
+		uwsgi_pass unix:/home/root/dados-livres/dadoslivres.sock;
+	
+	}
+
+}

@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve dadoslivres
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/root/dados-livres
+Environment="PATH=/home/root/dados-livres/venv/bin"
+ExecStart=/home/root/dados-livres/venv/bin/uwsgi --ini dadoslivres.ini
+
+[Install]
+WantedBy=multi-user.target
