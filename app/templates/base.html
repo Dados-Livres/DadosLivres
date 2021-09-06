@@ -80,9 +80,12 @@
     </div><br><br>
 
     <footer id="footer"><br>
-      <p class="text-muted text-center">{{_('Dados Livres')}} 2019 -
-        <script type="text/javascript">document.write(new Date().getFullYear());</script>
-      </p>
+      <p class="text-muted text-center">
+        {{_('Dados Livres')}} - 2019-<script type="text/javascript">
+        document.write(new Date().getFullYear());</script> -
+        <a href="{{ url_for('main.terms') }}" id="color-red">{{_('Termos')}}</a>
+         - <a href="{{ url_for('main.privacy_policy') }}" id="color-red">
+          {{_('Política de Privacidade')}}</a></p>
       <p class="text-center">
         {{_('Originalizado no IFRN e desenvolvido carinhosamente no RN - Brasil')}}
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path d="M10 17.12c3.33-1.4 5.74-3.79 7.04-6.21c1.28-2.41 1.46-4.81.32-6.25c-1.03-1.29-2.37-1.78-3.73-1.74s-2.68.63-3.63 1.46c-.95-.83-2.27-1.42-3.63-1.46s-2.7.45-3.73 1.74c-1.14 1.44-.96 3.84.34 6.25c1.28 2.42 3.69 4.81 7.02 6.21z" fill="#9d0208"/></svg><br>

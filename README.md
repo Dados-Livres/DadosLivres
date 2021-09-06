@@ -35,26 +35,26 @@ $ git clone https://gitlab.com/seu-usuario/dados-livres
 $ cd dados-livres
 ```
 
-Use um ambiente virtual para instalar a aplicação:
+Instale o ambiente virtual venv:
 
 ```sh
-$ virtualenv venv
+$ sudo apt-get install python3-venv
 ```
 
-Crie o ambiente virtual chamado venv:
+Utilize o comando abaixo para criar o ambiente virtual de nome venv:
 
 ```sh
 $ python3 -m venv venv
 ```
 
-Para ativar o ambiente virtual:
+Para entrar no ambiente virtual:
 
 ```sh
 $ source venv/bin/activate       (Linux)
 $ source venv\Script\activate    (Windows)
 ```
 
-E finalmente, instale a lista de pacotes da aplicação:
+Agora, instale a lista de bibliotecas no arquivo requirements.txt:
 
 ```sh
 $ pip install -r requirements.txt
