@@ -348,3 +348,11 @@ def ranking():
         desc(func.count(Software.user_id))).limit(15)
     return render_template('ranking.html', sources_user=sources_user,
         softwares_user=softwares_user, title=(_('Ranking de Colaboração')))
+
+@bp.route('/terms', methods=['GET', 'POST'])
+def terms():
+    return render_template('terms.html', title=(_('Termos e Condições')))
+
+@bp.route('/privacy_policy', methods=['GET', 'POST'])
+def privacy_policy():
+    return render_template('privacy_policy.html', title=(_('Política de Privacidade')))
