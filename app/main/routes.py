@@ -39,7 +39,7 @@ def tag():
     return jsonify(tags)
 
 @bp.route('/', methods=['GET', 'POST'])
-@bp.route('/index', methods=['GET', 'POST'])
+@bp.route('/inicio', methods=['GET', 'POST'])
 def index():
     page = request.args.get('page', 1, type=int)
     sources = db.session.query(Source.title, Source.sphere,
@@ -53,16 +53,15 @@ def index():
     return render_template('index.html', title=(_('Página Inicial')),
         sources=sources.items, softwares=softwares.items)
 
-@bp.route('/', methods=['GET', 'POST'])
-@bp.route('/source', methods=['GET', 'POST'])
+@bp.route('/fontes', methods=['GET', 'POST'])
 def source():
     return render_template('source.html', title=(_('Fontes')))
 
-@bp.route('/software', methods=['GET', 'POST'])
+@bp.route('/aplicacoes', methods=['GET', 'POST'])
 def software():
     return render_template('software.html', title=(_('Aplicações')))
 
-@bp.route('/register_source', methods=['GET', 'POST'])
+@bp.route('/cadastrarfonte', methods=['GET', 'POST'])
 @login_required
 def register_source():
     form = SourceForm()
@@ -86,7 +85,7 @@ def register_source():
     return render_template('register_source.html', title=(_('Cadastrar Fonte')),
         form=form)
 
-@bp.route('/source_profile/<title>', methods=['GET', 'POST'])
+@bp.route('/perfilfonte/<title>', methods=['GET', 'POST'])
 def source_profile(title):
     source = Source.query.filter_by(title=title).first_or_404()
     page = request.args.get('page', 1, type=int)
@@ -104,7 +103,7 @@ def source_profile(title):
     return render_template('source_profile.html', title=(_('Perfil da Fonte')),
         source=source, similar=similar.items, form=form)
 
-@bp.route('/edit_source/<int:id>', methods=['GET', 'POST'])
+@bp.route('/editarfonte/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_source(id):
     source = Source.query.get_or_404(id)
@@ -143,7 +142,7 @@ def edit_source(id):
     return render_template('edit_source.html', title=(_('Editar Fonte')),
             form=form, source=source, tag=tag, category=category)
 
-@bp.route("/deletar_source/<int:id>")
+@bp.route("/excluirfonte/<int:id>")
 @login_required
 def deletar_source(id):
     source = Source.query.filter_by(id=id).first()
@@ -157,7 +156,7 @@ def deletar_source(id):
     flash(_('A fonte "%s" foi apagada com sucesso.' % source.title))
     return redirect(url_for("main.index"))
 
-@bp.route('/register_software', methods=['GET', 'POST'])
+@bp.route('/cadastraraplicacao', methods=['GET', 'POST'])
 @login_required
 def register_software():
     form = SoftwareForm()
@@ -181,14 +180,14 @@ def register_software():
     return render_template('register_software.html', title=(_('Cadastrar Aplicação')),
         form=form)
 
-@bp.route('/software_profile/<title>', methods=['GET', 'POST'])
+@bp.route('/perfilaplicacao/<title>', methods=['GET', 'POST'])
 def software_profile(title):
     form = SimilarTitlesForm()
     software = Software.query.filter_by(title=title).first_or_404()
     return render_template('software_profile.html',
         title=(_('Perfil da Aplicação')), software=software, form=form)
 
-@bp.route('/edit_software/<int:id>', methods=['GET', 'POST'])
+@bp.route('/editaraplicacao/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_software(id):
     software = Software.query.get_or_404(id)
@@ -225,7 +224,7 @@ def edit_software(id):
     return render_template('edit_software.html', title=(_('Editar Aplicação')),
         form=form, software=software, tag=tag, category=category)
 
-@bp.route("/deletar_software/<int:id>")
+@bp.route("/excluiraplicacao/<int:id>")
 @login_required
 def deletar_software(id):
     software = Software.query.filter_by(id=id).first()
@@ -239,7 +238,7 @@ def deletar_software(id):
     flash(_('A aplicação "%s" foi apagada com sucesso.' % software.title))
     return redirect(url_for("main.index"))
 
-@bp.route('/user/<nickname>', methods=['GET', 'POST'])
+@bp.route('/usuario/<nickname>', methods=['GET', 'POST'])
 def user(nickname):
     user = User.query.filter_by(nickname=nickname).first_or_404()
     sources = db.session.query(Source.title, Source.sphere,
@@ -253,7 +252,7 @@ def user(nickname):
     return render_template('user.html', title=(_('Perfil do Usuário')),
         user=user, sources=sources, softwares=softwares)
 
-@bp.route('/edit_profile', methods=['GET', 'POST'])
+@bp.route('/editarusuario', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
     form = EditProfileForm(current_user.nickname)
@@ -271,7 +270,7 @@ def edit_profile():
     return render_template('edit_profile.html', title=(_('Editar Perfil')),
                            form=form)
 
-@bp.route('/deletar_user/<int:id>')
+@bp.route('/excluirusuario/<int:id>')
 @login_required
 def deletar_user(id):
     user = User.query.filter_by(id=id).first()
@@ -280,7 +279,7 @@ def deletar_user(id):
     flash(_('O usuário "%s" foi excluído.' % user.username))
     return redirect(url_for("main.index"))
 
-@bp.route('/edit_password', methods=["GET", "POST"])
+@bp.route('/editarsenha', methods=["GET", "POST"])
 @login_required
 def edit_password():
     form = EditPasswordForm(current_user.username)
@@ -293,16 +292,16 @@ def edit_password():
         form.senha = current_user.password_hash
     return render_template('edit_password.html', title=(_('Editar Senha')), form=form)
 
-@bp.route('/about', methods=['GET', 'POST'])
+@bp.route('/sobre', methods=['GET', 'POST'])
 def about():
     #collaborating_user = User.query.filter_by(nickname='fernando-ms').first_or_404()
     return render_template('about.html', title=(_('Sobre')))
 
-@bp.route('/how_to_contribute', methods=['GET', 'POST'])
+@bp.route('/comocontribuir', methods=['GET', 'POST'])
 def how_to_contribute():
     return render_template('how_to_contribute.html', title=(_('Como contribuir')))
 
-@bp.route('/contact', methods=['GET', 'POST'])
+@bp.route('/contato', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
     while current_user.is_authenticated:
@@ -349,10 +348,10 @@ def ranking():
     return render_template('ranking.html', sources_user=sources_user,
         softwares_user=softwares_user, title=(_('Ranking de Colaboração')))
 
-@bp.route('/terms', methods=['GET', 'POST'])
+@bp.route('/termos', methods=['GET', 'POST'])
 def terms():
     return render_template('terms.html', title=(_('Termos e Condições')))
 
-@bp.route('/privacy_policy', methods=['GET', 'POST'])
+@bp.route('/politicaprivacidade', methods=['GET', 'POST'])
 def privacy_policy():
     return render_template('privacy_policy.html', title=(_('Política de Privacidade')))

@@ -6,7 +6,7 @@ from app import db
 from app.category import bp
 from app.models import Source, Software, Tag, Category
 
-@bp.route('/Covid19_Source', methods=['GET', 'POST'])
+@bp.route('/covidfonte', methods=['GET', 'POST'])
 def Covid19_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Corona Vírus',
@@ -15,7 +15,7 @@ def Covid19_Source():
     return render_template('category/Covid19_Source.html',
         title=(_('Corona Vírus')), sources=sources)
 
-@bp.route('/Covid19_Software', methods=['GET', 'POST'])
+@bp.route('/covidaplicacao', methods=['GET', 'POST'])
 def Covid19_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Corona Vírus',
@@ -24,7 +24,7 @@ def Covid19_Software():
     return render_template('category/Covid19_Software.html',
         title=(_('Corona Vírus')), softwares=softwares)
 
-@bp.route('/Health_Source', methods=['GET', 'POST'])
+@bp.route('/saudefonte', methods=['GET', 'POST'])
 def Health_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Saúde',
@@ -33,7 +33,7 @@ def Health_Source():
     return render_template('category/Health_Source.html',
         title=_('Saúde'), sources=sources)
 
-@bp.route('/Health_Software', methods=['GET', 'POST'])
+@bp.route('/saudeaplicacao', methods=['GET', 'POST'])
 def Health_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Saúde',
@@ -42,7 +42,7 @@ def Health_Software():
     return render_template('category/Health_Software.html',
         title=_('Saúde'), softwares=softwares)
 
-@bp.route('/Education_Source', methods=['GET', 'POST'])
+@bp.route('/educacaofonte', methods=['GET', 'POST'])
 def Education_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Educação',
@@ -51,7 +51,7 @@ def Education_Source():
     return render_template('category/Education_Source.html',
         title=_('Educação'), sources=sources)
 
-@bp.route('/Education_Software', methods=['GET', 'POST'])
+@bp.route('/educacaoaplicacao', methods=['GET', 'POST'])
 def Education_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Educação',
@@ -60,7 +60,7 @@ def Education_Software():
     return render_template('category/Education_Software.html',
         title=_('Educação'), softwares=softwares)
 
-@bp.route('/MovieTheater_Source', methods=['GET', 'POST'])
+@bp.route('/cinemafonte', methods=['GET', 'POST'])
 def MovieTheater_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Cinema',
@@ -69,7 +69,7 @@ def MovieTheater_Source():
     return render_template('category/MovieTheater_Source.html',
         title=_('Cinema'), sources=sources)
 
-@bp.route('/MovieTheater_Software', methods=['GET', 'POST'])
+@bp.route('/cinemaaplicacao', methods=['GET', 'POST'])
 def MovieTheater_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Cinema',
@@ -78,7 +78,7 @@ def MovieTheater_Software():
     return render_template('category/MovieTheater_Software.html',
         title=_('Cinema'), softwares=softwares)
 
-@bp.route('/Music_Source', methods=['GET', 'POST'])
+@bp.route('/musicafonte', methods=['GET', 'POST'])
 def Music_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Música',
@@ -87,7 +87,7 @@ def Music_Source():
     return render_template('category/Music_Source.html',
         title=_('Música'), sources=sources)
 
-@bp.route('/Music_Software', methods=['GET', 'POST'])
+@bp.route('/musicaaplicacao', methods=['GET', 'POST'])
 def Music_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Música',
@@ -96,7 +96,7 @@ def Music_Software():
     return render_template('category/Music_Software.html',
         title=_('Música'), softwares=softwares)
 
-@bp.route('/Technology_Source', methods=['GET', 'POST'])
+@bp.route('/tecnologiafonte', methods=['GET', 'POST'])
 def Technology_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Tecnologia',
@@ -105,7 +105,7 @@ def Technology_Source():
     return render_template('category/Technology_Source.html',
         title=_('Tecnologia'), sources=sources)
 
-@bp.route('/Technology_Software', methods=['GET', 'POST'])
+@bp.route('/tecnologiaaplicacao', methods=['GET', 'POST'])
 def Technology_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Tecnologia',
@@ -114,7 +114,7 @@ def Technology_Software():
     return render_template('category/Technology_Software.html',
         title=_('Tecnologia'), softwares=softwares)
 
-@bp.route('/Science_Source', methods=['GET', 'POST'])
+@bp.route('/cienciafonte', methods=['GET', 'POST'])
 def Science_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Ciência',
@@ -123,7 +123,7 @@ def Science_Source():
     return render_template('category/Science_Source.html',
         title=_('Ciência'), sources=sources)
 
-@bp.route('/Science_Software', methods=['GET', 'POST'])
+@bp.route('/cienciaaplicacao', methods=['GET', 'POST'])
 def Science_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Ciência',
@@ -132,7 +132,7 @@ def Science_Software():
     return render_template('category/Science_Software.html',
         title=_('Ciência'), softwares=softwares)
 
-@bp.route('/PublicSecurity_Source', methods=['GET', 'POST'])
+@bp.route('/segurancafonte', methods=['GET', 'POST'])
 def PublicSecurity_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Segurança Pública',
@@ -141,7 +141,7 @@ def PublicSecurity_Source():
     return render_template('category/PublicSecurity_Source.html',
         title=_('Segurança Pública'), sources=sources)
 
-@bp.route('/PublicSecurity_Software', methods=['GET', 'POST'])
+@bp.route('/segurancaaplicacao', methods=['GET', 'POST'])
 def PublicSecurity_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Segurança Pública',
@@ -150,7 +150,7 @@ def PublicSecurity_Software():
     return render_template('category/PublicSecurity_Software.html',
         title=_('Segurança Pública'), softwares=softwares)
 
-@bp.route('/Environment_Source', methods=['GET', 'POST'])
+@bp.route('/meioambientefonte', methods=['GET', 'POST'])
 def Environment_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Meio Ambiente',
@@ -159,7 +159,7 @@ def Environment_Source():
     return render_template('category/Environment_Source.html',
         title=_('Meio Ambiente'), sources=sources)
 
-@bp.route('/Environment_Software', methods=['GET', 'POST'])
+@bp.route('/meioambienteaplicacao', methods=['GET', 'POST'])
 def Environment_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Meio Ambiente',
@@ -168,7 +168,7 @@ def Environment_Software():
     return render_template('category/Environment_Software.html',
         title=_('Meio Ambiente'), softwares=softwares)
 
-@bp.route('/Culture_Source', methods=['GET', 'POST'])
+@bp.route('/culturafonte', methods=['GET', 'POST'])
 def Culture_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Cultura',
@@ -177,7 +177,7 @@ def Culture_Source():
     return render_template('category/Culture_Source.html',
         title=_('Cultura'), sources=sources)
 
-@bp.route('/Culture_Software', methods=['GET', 'POST'])
+@bp.route('/culturaaplicacao', methods=['GET', 'POST'])
 def Culture_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Cultura',
@@ -186,7 +186,7 @@ def Culture_Software():
     return render_template('category/Culture_Software.html',
         title=_('Cultura'), softwares=softwares)
 
-@bp.route('/Geography_Source', methods=['GET', 'POST'])
+@bp.route('/geografiafonte', methods=['GET', 'POST'])
 def Geography_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Geografia',
@@ -195,7 +195,7 @@ def Geography_Source():
     return render_template('category/Geography_Source.html',
         title=_('Geografia'), sources=sources)
 
-@bp.route('/Geography_Software', methods=['GET', 'POST'])
+@bp.route('/geografiaaplicacao', methods=['GET', 'POST'])
 def Geography_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Geografia',
@@ -204,7 +204,7 @@ def Geography_Software():
     return render_template('category/Geography_Software.html',
         title=_('Geografia'), softwares=softwares)
 
-@bp.route('/Finances_Source', methods=['GET', 'POST'])
+@bp.route('/financeirofonte', methods=['GET', 'POST'])
 def Finances_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Finanças',
@@ -213,7 +213,7 @@ def Finances_Source():
     return render_template('category/Finances_Source.html',
         title=_('Finanças'), sources=sources)
 
-@bp.route('/Finances_Software', methods=['GET', 'POST'])
+@bp.route('/financeiroaplicacao', methods=['GET', 'POST'])
 def Finances_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Finanças',
@@ -222,7 +222,7 @@ def Finances_Software():
     return render_template('category/Finances_Software.html',
         title=_('Finanças'), softwares=softwares)
 
-@bp.route('/PublicSpending_Source', methods=['GET', 'POST'])
+@bp.route('/gastospublicosfonte', methods=['GET', 'POST'])
 def PublicSpending_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Gastos Públicos',
@@ -231,7 +231,7 @@ def PublicSpending_Source():
     return render_template('category/PublicSpending_Source.html',
         title=_('Gastos Públicos'), sources=sources)
 
-@bp.route('/PublicSpending_Software', methods=['GET', 'POST'])
+@bp.route('/gastospublicosaplicacao', methods=['GET', 'POST'])
 def PublicSpending_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Gastos Públicos',
@@ -240,7 +240,7 @@ def PublicSpending_Software():
     return render_template('category/PublicSpending_Software.html',
         title=_('Gastos Públicos'), softwares=softwares)
 
-@bp.route('/Climate_Source', methods=['GET', 'POST'])
+@bp.route('/climafonte', methods=['GET', 'POST'])
 def Climate_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Clima',
@@ -249,7 +249,7 @@ def Climate_Source():
     return render_template('category/Climate_Source.html',
         title=_('Clima'), sources=sources)
 
-@bp.route('/Climate_Software', methods=['GET', 'POST'])
+@bp.route('/climaaplicacao', methods=['GET', 'POST'])
 def Climate_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Clima',
@@ -258,7 +258,7 @@ def Climate_Software():
     return render_template('category/Climate_Software.html',
         title=_('Clima'), softwares=softwares)
 
-@bp.route('/Recreation_Source', methods=['GET', 'POST'])
+@bp.route('/esportelazerfonte', methods=['GET', 'POST'])
 def Recreation_Source():
     sources = db.session.query(Source.title, Source.sphere, Category.category,
         Tag.keyword).filter(Category.category=='Esporte e Lazer',
@@ -267,7 +267,7 @@ def Recreation_Source():
     return render_template('category/Recreation_Source.html',
         title=_('Esporte e Lazer'), sources=sources)
 
-@bp.route('/Recreation_Software', methods=['GET', 'POST'])
+@bp.route('/esportelazeraplicacao', methods=['GET', 'POST'])
 def Recreation_Software():
     softwares = db.session.query(Software.title, Software.owner, Software.license,
         Category.category, Tag.keyword).filter(Category.category=='Esporte e Lazer',
