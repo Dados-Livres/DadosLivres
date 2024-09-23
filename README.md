@@ -1,3 +1,1 @@
-Sobre o Dados Livres:
-
-[https://github.com/Dados-Livres/.github/blob/main/profile/README.md](https://github.com/Dados-Livres/.github/blob/main/profile/README.md)
+# Projeto continuado no GitLab: https://gitlab.com/dados-livres/dados-livres/
